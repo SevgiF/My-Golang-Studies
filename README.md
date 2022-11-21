@@ -1,2 +1,2 @@
 # My-Golang-Studies
-My works while learning Golang :)
+Things i did while learning Golang :)
