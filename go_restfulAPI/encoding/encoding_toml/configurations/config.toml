@@ -1,0 +1,11 @@
+# filename: config.toml  (bu bir açıklma satırı)
+
+[database]
+host = "localhost"
+port = 5432
+database = "hr"
+user = "postgres"
+password = "9m61t1A-"
+
+# [OtherSetting]
+# filePath = "./config.toml"

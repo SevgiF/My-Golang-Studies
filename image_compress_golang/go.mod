@@ -1,0 +1,21 @@
+module image_compress
+
+go 1.19
+
+require (
+	github.com/gorilla/mux v1.8.0
+	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
+	github.com/nickalie/go-webpbin v0.0.0-20220110095747-f10016bf2dc1
+)
+
+require (
+	github.com/dsnet/compress v0.0.1 // indirect
+	github.com/frankban/quicktest v1.14.4 // indirect
+	github.com/golang/snappy v0.0.4 // indirect
+	github.com/mholt/archiver v3.1.1+incompatible // indirect
+	github.com/nickalie/go-binwrapper v0.0.0-20190114141239-525121d43c84 // indirect
+	github.com/nwaples/rardecode v1.1.0 // indirect
+	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
+	github.com/ulikunitz/xz v0.5.10 // indirect
+	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
+)
