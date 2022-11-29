@@ -20,6 +20,22 @@ var id int = 0
 
 // todo: HTTP Post - /api/products
 func PostProductHandler(w http.ResponseWriter, r *http.Request) {
+	// swagger:operation POST /api/products write postProduct
+	//
+	// Adding a product
+	//
+	// ---
+	// produces:
+	// - application/json
+	// parameters:
+	// - name: Body
+	//   in: body
+	//   schema:
+	//     $ref: "#/definitions/Product"
+	// responses:
+	//   '200':
+	//     description: product response
+
 	var product m.Product
 	err := json.NewDecoder(r.Body).Decode(&product) //requestin body'sinde bulunan veriyi decode edip product nesnesinin hafıza adresine aktar
 	h.CheckError(err)
@@ -40,6 +56,21 @@ func PostProductHandler(w http.ResponseWriter, r *http.Request) {
 
 // todo: HTTP Get - /api/products
 func GetProductsHandler(w http.ResponseWriter, r *http.Request) {
+	// swagger:operation GET /api/products read getProducts
+	//
+	// Get all products
+	//
+	// ---
+	// produces:
+	// - application/json
+	// responses:
+	//   '200':
+	//     description: product response
+	//     schema:
+	//       type: array
+	//       items:
+	//         "$ref": "#/definitions/Product"
+
 	var products []m.Product
 	for _, product := range productStore {
 		products = append(products, product)
@@ -54,6 +85,26 @@ func GetProductsHandler(w http.ResponseWriter, r *http.Request) {
 
 // todo: HTTP Get - /api/products/{id}
 func GetProductHandler(w http.ResponseWriter, r *http.Request) {
+	// swagger:operation GET /api/products/{id} read getProduct
+	//
+	// Get a products
+	//
+	// ---
+	// produces:
+	// - application/json
+	// parameters:
+	// - in: path
+	//   name: id
+	//   required: true
+	//   type: integer
+	// responses:
+	//   '200':
+	//     description: product response
+	//     schema:
+	//       type: array
+	//       items:
+	//         "$ref": "#/definitions/Product"
+
 	var product m.Product
 	vars := mux.Vars(r)
 	key, _ := strconv.Atoi(vars["id"])
@@ -73,6 +124,26 @@ func GetProductHandler(w http.ResponseWriter, r *http.Request) {
 
 // todo: HTTP Put - /api/products/{id}
 func PutProductHandler(w http.ResponseWriter, r *http.Request) {
+	// swagger:operation PUT /api/products/{id} write putProduct
+	//
+	// Updating a product
+	//
+	// ---
+	// produces:
+	// - application/json
+	// parameters:
+	// - in: path
+	//   name: id
+	//   required: true
+	//   type: integer
+	// - name: Body
+	//   in: body
+	//   schema:
+	//     $ref: "#/definitions/Product"
+	// responses:
+	//   '200':
+	//     description: product response
+
 	var err error
 	vars := mux.Vars(r)
 	key := vars["id"]
@@ -94,6 +165,26 @@ func PutProductHandler(w http.ResponseWriter, r *http.Request) {
 
 // todo: HTTP Delete - /api/product{id}
 func DeleteProductHandler(w http.ResponseWriter, r *http.Request) {
+	// swagger:operation DELETE /api/products/{id} write deleteProduct
+	//
+	// Deleting a product
+	//
+	// ---
+	// produces:
+	// - application/json
+	// parameters:
+	// - in: path
+	//   name: id
+	//   required: true
+	//   type: integer
+	// - in: body
+	//   name: Body
+	//   schema:
+	//     $ref: "#/definitions/Product"
+	// responses:
+	//   '200':
+	//     description: product response
+
 	vars := mux.Vars(r)
 	key := vars["id"]
 	if _, ok := productStore[key]; ok {
