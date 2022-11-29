@@ -133,5 +133,5 @@ paths:
 produces:
     - application/json
 schemes:
-    - http
+    - https
 swagger: "2.0"
