@@ -2,7 +2,7 @@
 //
 // Documantation of our awesome API
 //
-//	Schemes: http
+//	Schemes: http/https
 //	Host: localhost:8080
 //	BasePath: /
 //	Version: 1.0.0
