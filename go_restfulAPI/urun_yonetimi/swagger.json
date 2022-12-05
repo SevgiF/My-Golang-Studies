@@ -11,7 +11,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Documantation of our awesome API",
-    "title": "awesome",
+    "title": "Product Management",
     "version": "1.0.0"
   },
   "host": "localhost:8080",
@@ -76,8 +76,10 @@
         "operationId": "getProduct",
         "parameters": [
           {
+            "type": "integer",
             "name": "id",
-            "in": "path"
+            "in": "path",
+            "required": true
           }
         ],
         "responses": {
@@ -103,8 +105,10 @@
         "operationId": "putProduct",
         "parameters": [
           {
+            "type": "integer",
             "name": "id",
-            "in": "path"
+            "in": "path",
+            "required": true
           },
           {
             "name": "Body",
@@ -131,8 +135,10 @@
         "operationId": "deleteProduct",
         "parameters": [
           {
+            "type": "integer",
             "name": "id",
-            "in": "path"
+            "in": "path",
+            "required": true
           },
           {
             "name": "Body",
@@ -148,6 +154,50 @@
           }
         }
       }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "description": "Represents the product for this app",
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "changedon": {
+          "description": "the product editing time",
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "ChangedOn",
+          "example": "2022-01-01"
+        },
+        "createdon": {
+          "description": "the product creation time",
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreatedOn",
+          "example": "2022-01-01"
+        },
+        "description": {
+          "description": "the description for product description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "the id for product",
+          "type": "integer",
+          "format": "int64",
+          "uniqueItems": true,
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "the name for product name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "sevgifidan.com/urunYonetimi/models"
     }
   }
 }
