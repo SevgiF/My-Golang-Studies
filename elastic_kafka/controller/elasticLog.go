@@ -43,7 +43,6 @@ func PostLog(ctx *fiber.Ctx) error {
 					log.Printf("Error writing message to Kafka: %s", err)
 				}
 			}
-			//
 		}), */
 	)
 
