@@ -1,0 +1,10 @@
+Mini Project
+
+    Product Store with Go
+
+Operations
+
+    - INSERT : Add a Product
+    - SELECT : Get All Products
+    - SELECT : Get a Product By ID
+    - UPDATE : Update a Product

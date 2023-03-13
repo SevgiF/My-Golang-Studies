@@ -1,0 +1,203 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Documantation of our awesome API",
+    "title": "Product Management",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "paths": {
+    "/api/products": {
+      "get": {
+        "description": "Get all products",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "read"
+        ],
+        "operationId": "getProducts",
+        "responses": {
+          "200": {
+            "description": "product response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Adding a product",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "write"
+        ],
+        "operationId": "postProduct",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "product response"
+          }
+        }
+      }
+    },
+    "/api/products/{id}": {
+      "get": {
+        "description": "Get a products",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "read"
+        ],
+        "operationId": "getProduct",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "product response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Updating a product",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "write"
+        ],
+        "operationId": "putProduct",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "product response"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deleting a product",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "write"
+        ],
+        "operationId": "deleteProduct",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "product response"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "description": "Represents the product for this app",
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "changedon": {
+          "description": "the product editing time",
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "ChangedOn",
+          "example": "2022-01-01"
+        },
+        "createdon": {
+          "description": "the product creation time",
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreatedOn",
+          "example": "2022-01-01"
+        },
+        "description": {
+          "description": "the description for product description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "id": {
+          "description": "the id for product",
+          "type": "integer",
+          "format": "int64",
+          "uniqueItems": true,
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "the name for product name",
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "sevgifidan.com/urunYonetimi/models"
+    }
+  }
+}
