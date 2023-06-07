@@ -1,0 +1,103 @@
+basePath: /
+consumes:
+    - application/json
+host: localhost:8080
+info:
+    description: |-
+        Documantation of our awesome API
+
+        Schemes: http/https
+    title: Product Management
+    version: 1.0.0
+paths:
+    /api/products:
+        get:
+            description: Get all products
+            operationId: getProducts
+            produces:
+                - application/json
+            responses:
+                "200":
+                    description: product response
+                    schema:
+                        items:
+                            $ref: '#/definitions/Product'
+                        type: array
+            tags:
+                - read
+        post:
+            description: Adding a product
+            operationId: postProduct
+            parameters:
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/Product'
+            produces:
+                - application/json
+            responses:
+                "200":
+                    description: product response
+            tags:
+                - write
+    /api/products/{id}:
+        delete:
+            description: Deleting a product
+            operationId: deleteProduct
+            parameters:
+                - in: path
+                  name: id
+                  required: true
+                  type: integer
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/Product'
+            produces:
+                - application/json
+            responses:
+                "200":
+                    description: product response
+            tags:
+                - write
+        get:
+            description: Get a products
+            operationId: getProduct
+            parameters:
+                - in: path
+                  name: id
+                  required: true
+                  type: integer
+            produces:
+                - application/json
+            responses:
+                "200":
+                    description: product response
+                    schema:
+                        items:
+                            $ref: '#/definitions/Product'
+                        type: array
+            tags:
+                - read
+        put:
+            description: Updating a product
+            operationId: putProduct
+            parameters:
+                - in: path
+                  name: id
+                  required: true
+                  type: integer
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/Product'
+            produces:
+                - application/json
+            responses:
+                "200":
+                    description: product response
+            tags:
+                - write
+produces:
+    - application/json
+swagger: "2.0"

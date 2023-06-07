@@ -1,0 +1,4 @@
+.DS_Store
+.env
+settings.json
+launch.json

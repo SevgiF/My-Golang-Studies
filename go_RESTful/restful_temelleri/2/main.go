@@ -19,7 +19,7 @@ func main() {
 type ironman int
 
 // ServeHTTP kafadan verilmiş isim değil. Bu şekilde yazılması gerekiyor.
-// HAndle nesne üzerinde ServeHTTP metodunu arar.
+// Handle nesne üzerinde ServeHTTP metodunu arar.
 func (x ironman) ServeHTTP(res http.ResponseWriter, r *http.Request) {
 	io.WriteString(res, "Mr. Iron!")
 }
